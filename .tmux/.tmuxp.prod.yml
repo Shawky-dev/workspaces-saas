@@ -1,0 +1,22 @@
+session_name: workspace-saas-prod
+start_directory: /home/shawky/Documents/coding/gam3a/workspaces_saas
+windows:
+  - window_name: stack
+    panes:
+      - shell_command:
+          - docker compose --env-file .env -f docker-compose.yml up --build
+  - window_name: backend
+    panes:
+      - shell_command:
+          - sleep 5
+          - docker compose --env-file .env -f docker-compose.yml logs -f backend
+  - window_name: frontend
+    panes:
+      - shell_command:
+          - sleep 5
+          - docker compose --env-file .env -f docker-compose.yml logs -f frontend
+  - window_name: db
+    panes:
+      - shell_command:
+          - sleep 5
+          - docker compose --env-file .env -f docker-compose.yml logs -f db
